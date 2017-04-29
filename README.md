@@ -33,7 +33,7 @@ Note that you may want to:
 get and enjoy a neat msf prompt with this command:
 
 ```bash
-docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf
+docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf cflq3/msf
 ```
 
 Explanations:
@@ -49,7 +49,7 @@ You can also give it full access to the host network:
 > Note that this can be **risky** as all services on your host, including those that listen on localhost, would be reachable from within the container, in case it is compromise.
 
 ```bash
-docker run --rm -it --net=host -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf
+docker run --rm -it --net=host -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf cflq3/msf
 ```
 
 At any time, you can exit, which only stops (suspend) the container.

@@ -3,10 +3,7 @@
 # Purpose
 
 This Dockerfile builds a Debian-based Docker container with Metasploit-Framework installed.
-
-**A quick and easy way to deploy Metasploit on any box, including Linux, MacOS or Windows!**
-
-![phocean/msf](https://raw.githubusercontent.com/phocean/dockerfile-debian-metasploit/master/screenshot.png)
+Or you can just use *docker pull cflq3/msf* to get the image from hub.docker.com
 
 MSF is started automatically with:
 
@@ -22,18 +19,6 @@ It also includes:
 - nasm, to support custom encoders;
 - a configuration file to get an improved prompt in Metasploit, with timestamping and sessions/jobs status.
 
-# Build
-
-To build the container, just use this command:
-
-```bash
-docker build -t phocean/msf .
-```
-
-Docker will download the Debian image and then execute the installation steps.
-
-> Be patient, the process can be quite long the first time.
-
 Note that you may want to:
 
 - copy the *contrib/config* file to the *~/.msf4* folder to get a nice prompt.
@@ -45,7 +30,7 @@ Note that you may want to:
 
 # Run
 
-Once the build process is over, get and enjoy a neat msf prompt with this command:
+get and enjoy a neat msf prompt with this command:
 
 ```bash
 docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf phocean/msf

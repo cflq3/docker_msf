@@ -36,11 +36,18 @@ get and enjoy a neat msf prompt with this command:
 docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/msf4:/root/.msf4 -v /tmp/msf:/tmp/data image_id
 ```
 
+in the bash prompt, just type:
+
+```bash
+/etc/init.d/postgresql start
+```
+
 Explanations:
 
 - We map the port range from 9990 to 9999 to our host, to catch reverse shells back.
 - We mount the local *.msf4* folder, where you can set your prompt and put custom scripts and modules, to */root/.msf4* inside the container (if you want to make some changes at runtime, beware to do it from your host, not from within the container).
 - Similarly, we mount a */tmp/data folder* to exchange data (a dump from a successful exploit, for instance).
+- It's postgresql can't auto-start by the init.sh, you should start it manually.
 
 Of course, it is up to you to adjust it to your taste or need.
 
@@ -64,5 +71,5 @@ docker rm msf
 
 After launching the docker container, you will get a *bash* prompt.
 
-From there, you can start *msfconsole*, *tmux* or any other Metasploit tool (*msfvenom*, *pattern_offset.rb*, etc.).
+From there, you just start postgresql and then *tmux*, *msfconsole*,  or any other Metasploit tool (*msfvenom*, *pattern_offset.rb*, etc.).
 

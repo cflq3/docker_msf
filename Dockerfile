@@ -37,6 +37,7 @@ curl -L https://get.rvm.io | bash -s stable && \
 /bin/bash -l -c "BUNDLEJOBS=$(expr $(cat /proc/cpuinfo | grep vendor_id | wc -l) - 1)" && \
 /bin/bash -l -c "bundle config --global jobs $BUNDLEJOBS" && \
 /bin/bash -l -c "bundle install" && \
+/bin/bash -l -c "gem install os" && \
 for i in `ls /opt/msf/tools/*/*`; do ln -s $i /usr/local/bin/; done && \
 ln -s /opt/msf/msf* /usr/local/bin
 

@@ -2,7 +2,7 @@
 
 # Purpose
 
-This Dockerfile builds a Debian-based Docker container with Metasploit-Framework installed.
+This Dockerfile builds a Ubuntu-based Docker container with Metasploit-Framework installed.
 
 Or you can just use *docker pull cflq3/msf* to get the image from hub.docker.com
 
@@ -22,7 +22,6 @@ It also includes:
 
 Note that you may want to:
 
-- copy the *contrib/config* file to the *~/.msf4* folder to get a nice prompt.
 - customize the *conf/tmux* file, if you plan to use this tool.
 
 > The configuration of Tmux maps the keyboard as in Screen (CTRL-A). It also makes a few cosmetic changes to the status bar.
@@ -34,7 +33,7 @@ Note that you may want to:
 get and enjoy a neat msf prompt with this command:
 
 ```bash
-docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf cflq3/msf
+docker run --rm -i -t -p 9990-9999:9990-9999 -v /home/<USER>/msf4:/root/.msf4 -v /tmp/msf:/tmp/data image_id
 ```
 
 Explanations:
@@ -44,14 +43,6 @@ Explanations:
 - Similarly, we mount a */tmp/data folder* to exchange data (a dump from a successful exploit, for instance).
 
 Of course, it is up to you to adjust it to your taste or need.
-
-You can also give it full access to the host network:
-
-> Note that this can be **risky** as all services on your host, including those that listen on localhost, would be reachable from within the container, in case it is compromise.
-
-```bash
-docker run --rm -it --net=host -v /home/<USER>/.msf4:/root/.msf4 -v /tmp/msf:/tmp/data --name msf cflq3/msf
-```
 
 At any time, you can exit, which only stops (suspend) the container.
 
